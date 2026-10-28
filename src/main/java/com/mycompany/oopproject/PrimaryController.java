@@ -13,7 +13,7 @@ public class PrimaryController {
     
     // 1. Controls matching your FXML fx:id's
     @FXML
-    private TextField usernameField;
+    private TextField emailField;
 
     @FXML
     private PasswordField passwordField;
@@ -23,24 +23,26 @@ public class PrimaryController {
 
     // 2. Login button action
     @FXML
-    private void handleLogin() throws IOException {
-        String username = usernameField.getText().trim();
+    private void handleLoginButtonAction() throws IOException {
+        String email = emailField.getText().trim();
         String password = passwordField.getText().trim();
 
-        if (username.isEmpty() || password.isEmpty()) {
+        if (email.isEmpty() || password.isEmpty()) {
             statusLabel.setText("Please enter username and password.");
             return;
         }
 
         // TODO: Replace this with your database check logic!
-        boolean isValidUser = checkDatabaseCredentials(username, password);
+        boolean isValidUser = checkDatabaseCredentials(email, password);
 
-        if (isValidUser) {
+        if (isValidUser=true) {
             // Switches screen using your group's App setup!
             App.setRoot("secondary"); 
         } else {
             statusLabel.setText("Invalid username or password.");
         }
+        
+   
     }
 
     // 3. Register button action
