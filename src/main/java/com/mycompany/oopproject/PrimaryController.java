@@ -9,7 +9,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class PrimaryController {
-
+    
+    
     // 1. Controls matching your FXML fx:id's
     @FXML
     private TextField usernameField;
