@@ -22,7 +22,7 @@ public class PrimaryController {
 
     // 2. Login button action
     @FXML
-    private void handleLogin() throws IOException {
+    private void handleLoginButtonAction() throws IOException {
         String username = usernameField.getText().trim();
         String password = passwordField.getText().trim();
 
@@ -30,11 +30,11 @@ public class PrimaryController {
             statusLabel.setText("Please enter username and password.");
             return;
         }
-
+    statusLabel.setText("");
         // TODO: Replace this with your database check logic!
-        boolean isValidUser = checkDatabaseCredentials(username, password);
-
-        if (isValidUser) {
+        UserDAO DAO = new UserDAO();
+        boolean isValidUser = DAO.UserValidation(username, password);
+        if (isValidUser==true) {
             // Switches screen using your group's App setup!
             App.setRoot("secondary"); 
         } else {
@@ -46,13 +46,13 @@ public class PrimaryController {
     @FXML
     private void handleRegisterView() throws IOException {
         // Switches screen to register view
-        App.setRoot("register"); 
+        App.setRoot("register");  
     }
 
     // Helper method for database check
-    private boolean checkDatabaseCredentials(String user, String pass) {
+    //private boolean checkDatabaseCredentials(String user, String pass) {
         // Temporary placeholder so you can test right away
         // Change this once you connect your JDBC database!
-        return user.equals("admin") && pass.equals("1234");
-    }
+        //return user.equals("admin") && pass.equals("1234");
+    //}
 }
